@@ -1,6 +1,4 @@
 
-package com.mycompany.mavenproject1;
-
 import java.util.Scanner;
 public class Test1 {
         
@@ -72,7 +70,7 @@ public class Test1 {
         String s = "JavaDSA";
         
         int len = s.length();
-        char first = s.charAt(len);
+        char first = s.charAt(len - 1); // Adjusted to get the last character
         
         String sub = s.substring(0, 4);
         
