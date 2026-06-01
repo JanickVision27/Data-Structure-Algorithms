@@ -99,15 +99,13 @@ public class Pattern_based {
 
     }
 
-    public void pattern8() 
-    {
+    public void pattern8() {
         System.out.println("Please Provide a Number");
         int n = sc.nextInt();
 
         System.out.println();
 
-        for (int i = n; i >= 1; i--) 
-        {
+        for (int i = n; i >= 1; i--) {
             for (int j = 1; j <= (n - i); j++) {
                 System.out.print(" ");
             }
@@ -119,31 +117,76 @@ public class Pattern_based {
         }
     }
 
-    public void pattern9(){
+    public void pattern9() {
         System.out.println("Please Provide a Number");
         int n = sc.nextInt();
 
         System.out.println();
 
-        for (int i = 1; i <= n; i ++){
+        for (int i = 1; i <= n; i++) {
 
-            for (int j = 1; j <= (n - i); j++){
+            for (int j = 1; j <= (n - i); j++) {
                 System.out.print(" ");
             }
 
-            for (int j = 1; j <= (2 * i - 1); j++){
+            for (int j = 1; j <= (2 * i - 1); j++) {
                 System.out.print("*");
             }
             System.out.println();
         }
 
-        for (int i = n; i >= 1; i--){
-            for (int j = 1; j <= (n - i); j++){
+        for (int i = n; i >= 1; i--) {
+            for (int j = 1; j <= (n - i); j++) {
                 System.out.print(" ");
             }
 
-            for (int j = 1; j <= (2 * i - 1); j++){
+            for (int j = 1; j <= (2 * i - 1); j++) {
                 System.out.print("*");
+            }
+            System.out.println();
+        }
+
+    }
+
+    public void pattern10() {
+        System.out.println("Please Provide a Number");
+        int n = sc.nextInt();
+
+        System.out.println();
+
+        for (int i = 1; i < n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+        for (int i = n; i >= 1; i--) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+
+    }
+
+    public void pattern11() {
+        System.out.println("Please Provide a Number");
+        int n = sc.nextInt();
+
+        System.out.println();
+
+        int val = 0;
+
+        for (int i = 1; i < n; i++) {
+            for (int j = 1; j <= i; j++) {
+                if ((i + j) % 2 == 0){
+                    System.out.print(1);
+                }
+                else{
+                    System.out.print(0);
+                }
+                
+
             }
             System.out.println();
         }
