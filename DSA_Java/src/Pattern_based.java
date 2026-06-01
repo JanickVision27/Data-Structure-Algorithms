@@ -175,19 +175,39 @@ public class Pattern_based {
 
         System.out.println();
 
-        int val = 0;
-
         for (int i = 1; i < n; i++) {
             for (int j = 1; j <= i; j++) {
-                if ((i + j) % 2 == 0){
+                if ((i + j) % 2 == 0) {
                     System.out.print(1);
-                }
-                else{
+                } else {
                     System.out.print(0);
                 }
-                
 
             }
+            System.out.println();
+        }
+
+    }
+
+    public void pattern12() {
+        System.out.println("Please Provide a Number");
+        int n = sc.nextInt();
+
+        System.out.println();
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(j);
+            }
+
+            for (int j = 1; j <= 2 * (n - i); j++) {
+                System.out.print(" ");
+            }
+
+            for (int j = i; j >= 1; j--) {
+                System.out.print(j);
+            }
+
             System.out.println();
         }
 
