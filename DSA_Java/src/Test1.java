@@ -69,11 +69,6 @@ public class Test1 {
     public void string_val(){
         String s = "JavaDSA";
         
-        int len = s.length();
-        char first = s.charAt(len - 1); // Adjusted to get the last character
-        
-        String sub = s.substring(0, 4);
-        
         if (s.equals("JavaDSA")){
             System.out.println("Print Good");
         }
