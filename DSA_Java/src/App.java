@@ -3,7 +3,7 @@ public class App {
         // Pattern_based patterns = new Pattern_based();
         Basic_Math math = new Basic_Math();
 
-        math.countNumbers();
+        math.palindromeNumbers();
 
     }
     

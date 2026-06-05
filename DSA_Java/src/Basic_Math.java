@@ -24,7 +24,6 @@ public class Basic_Math {
         int reverse = 0;
 
         while (num != 0) {
-
             int digit = num % 10;
             reverse = reverse * 10 + digit;
             num /= 10;
@@ -33,5 +32,29 @@ public class Basic_Math {
         System.out.println("Reverse Numbers : " + reverse);
 
     }
+
+    public void palindromeNumbers() 
+    {
+        int number = 4554;
+        int num = number;
+        int reverse = 0;
+
+        while (num != 0){
+            int digit = num % 10;
+            reverse = reverse * 10 + digit;
+            num = num / 10;
+
+        }
+
+        if (reverse == number){
+            System.out.println("This is a Palindrome");
+        }
+        else{
+            System.out.println("This is not a Palindrome");
+        }
+
+    }
+
+
 
 }
