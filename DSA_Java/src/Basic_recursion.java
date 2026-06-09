@@ -1,28 +1,47 @@
+import java.util.*;
 public class Basic_recursion {
+
+    public void reverseArray(int [] arr){
+        int l = 0;
+        int r = arr.length - 1;
+
+        while (l < r){
+            int temp = arr[l];
+            arr[l] = arr[r];
+            arr[r] = temp;
+
+            l++;
+            r--;
+        }
+
+    }
     
     public boolean isPalindrome(String s) {
-        // Convert Uppercase string to Lowercase String
-        s = s.toLowerCase();
+        int l = 0;
+        int r = s.length() - 1;
 
-        // Remove all non-alphanumeric characters
-        String word = s.replaceAll("[^A-zA-Z0-9]", "");
+        while (l < r){
+            char leftchar = s.charAt(l);
+            char rightchar = s.charAt(r);
 
-
-        int L = 0;
-        int R = word.length() - 1;
-
-        while (L < R){
-            if (word.charAt(L) != word.charAt(R)){
-                System.out.println("FALSE");
-                return false;
+            if(!Character.isLetterOrDigit(leftchar)){
+                l++;
+            }
+            else if(!Character.isLetterOrDigit(rightchar)){
+                r--;
             }
             else{
-                L++;
-                R--;
+                if(Character.toLowerCase(leftchar) != Character.toLowerCase(rightchar)){
+                    System.out.println("False");
+                    return false;
+                }
+                l++;
+                r--;
             }
 
+
         }
-        System.out.println("TRUE");
+        System.out.println("True");
         return true;
         
     }
