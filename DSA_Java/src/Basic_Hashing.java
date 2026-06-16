@@ -22,14 +22,13 @@ public class Basic_Hashing {
 
         // Storing the values for counting the elements
         for (int i = 0; i < n; i++) {
-            map.put(arr[i],
-                    map.getOrDefault(arr[i], 0) + 1);
+            map.put(arr[i],map.getOrDefault(arr[i], 0) + 1);
 
         }
 
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
             System.out.println(entry.getKey() + " " + entry.getValue());
-        }
+        }  
 
     }
 
