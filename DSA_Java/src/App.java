@@ -4,10 +4,11 @@ public class App {
         // Basic_Math math = new Basic_Math();
         // Basic_recursion rec = new Basic_recursion();
         Basic_Hashing hash = new Basic_Hashing();
-        hash.countFreq();
+        // hash.findHighest_Lowest();
+        hash.Testing_Hashing();
         
 
 
     }
-    
+
 }
