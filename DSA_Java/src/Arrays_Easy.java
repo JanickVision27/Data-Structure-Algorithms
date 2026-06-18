@@ -38,7 +38,7 @@ public class Arrays_Easy {
             }
         }
 
-        // USe max for determining min and use min for determining Max values
+        // USe max for determining min and use min for determining Max values   
         int secondMax = Integer.MIN_VALUE;
         int secondMin = Integer.MAX_VALUE;
 
@@ -57,6 +57,31 @@ public class Arrays_Easy {
         System.out.println("Second Highest: " + secondMax);
         System.out.println("Second Smallest : " + secondMin);
 
+    }
+
+
+    public void CheckArraySorted(){
+        int [] arr = {1,2,3,4,5};
+        int n = arr.length;
+        boolean checkSorted = true;
+
+        for(int i = 0; i < n - 1; i++){
+            if (arr[i] > arr[i+1]){
+                checkSorted = false;
+                break;
+            }
+            else{
+
+                checkSorted = true;
+            }
+        }
+
+        if(checkSorted){
+            System.out.println("It is True");
+        }
+        else{
+            System.out.println("It is False");
+        }
     }
 
 }

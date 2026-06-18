@@ -6,7 +6,8 @@ public class App {
         // Basic_Hashing hash = new Basic_Hashing();
         Arrays_Easy ar1 = new Arrays_Easy();
         // ar1.LargestElement();
-        ar1.get_second_min_max();
+        // ar1.get_second_min_max();
+        ar1.CheckArraySorted();
         
 
 
