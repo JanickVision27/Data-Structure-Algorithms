@@ -38,7 +38,7 @@ public class Arrays_Easy {
             }
         }
 
-        // USe max for determining min and use min for determining Max values   
+        // USe max for determining min and use min for determining Max values
         int secondMax = Integer.MIN_VALUE;
         int secondMin = Integer.MAX_VALUE;
 
@@ -59,29 +59,66 @@ public class Arrays_Easy {
 
     }
 
-
-    public void CheckArraySorted(){
-        int [] arr = {1,2,3,4,5};
+    public void CheckArraySorted() {
+        int[] arr = { 1, 2, 3, 4, 5 };
         int n = arr.length;
         boolean checkSorted = true;
 
-        for(int i = 0; i < n - 1; i++){
-            if (arr[i] > arr[i+1]){
+        for (int i = 0; i < n - 1; i++) {
+            if (arr[i] > arr[i + 1]) {
                 checkSorted = false;
                 break;
-            }
-            else{
+            } else {
 
                 checkSorted = true;
             }
         }
 
-        if(checkSorted){
+        if (checkSorted) {
             System.out.println("It is True");
-        }
-        else{
+        } else {
             System.out.println("It is False");
         }
     }
+
+    public void RemoveDuplicatesInPlace() {
+        int[] arr = { 1, 1, 2, 2, 2, 3, 3 };
+        int i = 0;
+
+        // You just swap the values when they are not equal
+        for (int j = 1; j < arr.length; j++) {
+            if (arr[i] != arr[j]) {
+                i++;
+                arr[i] = arr[j];
+
+            }
+        }
+
+        System.out.println();
+
+        System.out.println("How many Unique Elements  " + (i + 1));
+
+    }
+
+    public void LeftRotateByOne() {
+        int[] arr = { 1, 2, 3, 4, 5 };
+
+        int i = 0;
+        int temp = arr[0];
+
+        for (int j = 1; j < arr.length; j++) {
+            arr[i] = arr[j];
+            i++;
+
+        }
+
+        arr[arr.length - 1] = temp;
+
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+
+    
 
 }

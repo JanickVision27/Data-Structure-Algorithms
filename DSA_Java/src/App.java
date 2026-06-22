@@ -7,7 +7,7 @@ public class App {
         Arrays_Easy ar1 = new Arrays_Easy();
         // ar1.LargestElement();
         // ar1.get_second_min_max();
-        ar1.CheckArraySorted();
+        ar1.LeftRotateByOne();
         
 
 
