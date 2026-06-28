@@ -5,9 +5,7 @@ public class App {
         // Basic_recursion rec = new Basic_recursion();
         // Basic_Hashing hash = new Basic_Hashing();
         Arrays_Easy ar1 = new Arrays_Easy();
-        // ar1.LargestElement();
-        // ar1.get_second_min_max();
-        ar1.LeftRotateByOne();
+        ar1.MoveZerosToEnd();
         
 
 

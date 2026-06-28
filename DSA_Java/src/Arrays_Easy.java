@@ -103,22 +103,86 @@ public class Arrays_Easy {
     public void LeftRotateByOne() {
         int[] arr = { 1, 2, 3, 4, 5 };
 
-        int i = 0;
         int temp = arr[0];
 
-        for (int j = 1; j < arr.length; j++) {
-            arr[i] = arr[j];
-            i++;
-
+        for (int i = 0; i < arr.length - 1; i++) {
+            arr[i] = arr[i + 1];
         }
 
         arr[arr.length - 1] = temp;
 
-        for (int num : arr) {
-            System.out.print(num + " ");
+        System.out.println(Arrays.toString(arr));
+
+    }
+
+    public void RotateArrayByK() {
+        int[] arr = { 1, 2, 3, 4, 5, 6, 7 };
+
+        int k = 3;
+        int n = arr.length;
+
+        if (k > n) {
+            k = k % n;
+        }
+
+        reverseArray(arr, 0, arr.length - 1);
+        reverseArray(arr, 0, k - 1);
+        reverseArray(arr, k, arr.length - 1);
+        System.out.println(Arrays.toString(arr));
+
+    }
+
+    void reverseArray(int[] arr, int start, int end) {
+        while (start < end) {
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
         }
     }
 
-    
+    public void MoveZerosToEnd() {
+        int[] arr = { 0, 1, 0, 3, 12 };
+        // int insertPos = 0;
+
+        // for (int i = 0; i < arr.length; i++){
+        //     if (arr[i] != 0){
+        //         arr[insertPos] = arr[i];
+        //         insertPos++;
+        //     }
+        // }
+        // while (insertPos < arr.length) {
+        //     arr[insertPos] = 0;
+        //     insertPos++;
+        // }
+        // System.out.println(Arrays.toString(arr));
+
+        int left = 0;
+        for (int right = 0; right < arr.length; right++){
+            if (arr[right] != 0){
+                int temp = arr[left];
+                arr[left] = arr[right];
+                arr[right] = temp;
+                left++;
+            }
+        }
+
+        System.out.println(Arrays.toString(arr));
+
+    }
+
+    public void linearSearch() {
+        int[] arr = { 1, 2, 3, 4, 5 };
+        int num = 5;
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == num) {
+                System.out.println(i + 1);
+            }
+
+        }
+
+    }
 
 }
