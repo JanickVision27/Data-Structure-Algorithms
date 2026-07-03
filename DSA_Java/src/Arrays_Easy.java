@@ -142,30 +142,21 @@ public class Arrays_Easy {
         }
     }
 
-    public void MoveZerosToEnd() {
-        int[] arr = { 0, 1, 0, 3, 12 };
-        // int insertPos = 0;
+    public void moveZeroes() {
+        int[] arr = { 1, 2, 0, 3, 0 };
 
-        // for (int i = 0; i < arr.length; i++){
-        //     if (arr[i] != 0){
-        //         arr[insertPos] = arr[i];
-        //         insertPos++;
-        //     }
-        // }
-        // while (insertPos < arr.length) {
-        //     arr[insertPos] = 0;
-        //     insertPos++;
-        // }
-        // System.out.println(Arrays.toString(arr));
+        int n = arr.length;
+        int i = 0;
 
-        int left = 0;
-        for (int right = 0; right < arr.length; right++){
-            if (arr[right] != 0){
-                int temp = arr[left];
-                arr[left] = arr[right];
-                arr[right] = temp;
-                left++;
+        for (int j = 0; j < n; j++) {
+            if (arr[j] != 0) {
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+                i++;
+
             }
+
         }
 
         System.out.println(Arrays.toString(arr));
@@ -183,6 +174,38 @@ public class Arrays_Easy {
 
         }
 
+    }
+
+    // will be do that later.
+    public void UnionArrays() {
+        int [] arr1 = {1,2,3,4,5};
+        int [] arr2 = {2,3,4,4,5};
+
+        int n = arr1.length;
+        int m = arr2.length;
+
+
+    }
+
+    public int MaxConsecutiveOnes(int [] nums){
+        int counter = 0;
+        int max_counter = 0;
+
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i] == 1){
+                counter++;
+
+                if(counter > max_counter){
+                    max_counter = counter;
+                }
+                
+            }
+            else{
+                counter = 0;
+            }
+        }
+
+        return max_counter;
     }
 
 }
