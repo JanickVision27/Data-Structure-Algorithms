@@ -178,34 +178,84 @@ public class Arrays_Easy {
 
     // will be do that later.
     public void UnionArrays() {
-        int [] arr1 = {1,2,3,4,5};
-        int [] arr2 = {2,3,4,4,5};
+        int[] arr1 = { 1, 2, 3, 4, 5 };
+        int[] arr2 = { 2, 3, 4, 4, 5 };
 
-        int n = arr1.length;
-        int m = arr2.length;
+        ArrayList<Integer> union = new ArrayList<>();
+        int i = 0;
+        int j = 0;
+
+        while (i < arr1.length && j < arr2.length) {
+            if (arr1[i] < arr2[j]) {
+                if (union.isEmpty() || union.get(union.size() - 1) != arr1[i]) {
+                    union.add(arr1[i]);
+                }
+                i++;
+            } else if (arr2[j] < arr1[i]) {
+                if (union.isEmpty() || union.get(union.size() - 1) != arr2[j]) {
+                    union.add(arr2[j]);
+                }
+                j++;
+            } else {
+                if (union.isEmpty() || union.get(union.size() - 1) != arr1[i]) {
+                    union.add(arr1[i]);
+                }
+                i++;
+                j++;
+            }
+
+        }
+
+        while(i < arr1.length){
+            if(union.isEmpty() || union.get(union.size() - 1) != arr1[i]){
+                union.add(arr1[i]);
+            }
+            i++;
+        }
+
+        while(j < arr2.length){
+            if(union.isEmpty() || union.get(union.size() - 1) != arr2[j]){
+                union.add(arr2[j]);
+            }
+            j++;
+        }
 
 
     }
 
-    public int MaxConsecutiveOnes(int [] nums){
+    public int MaxConsecutiveOnes(int[] nums) {
         int counter = 0;
         int max_counter = 0;
 
-        for(int i = 0; i < nums.length; i++){
-            if(nums[i] == 1){
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 1) {
                 counter++;
 
-                if(counter > max_counter){
+                if (counter > max_counter) {
                     max_counter = counter;
                 }
-                
-            }
-            else{
+
+            } else {
                 counter = 0;
             }
         }
 
         return max_counter;
+    }
+
+    public void SingleNumber(int[] nums) {
+        Map<Integer, Integer> countArr = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            countArr.put(nums[i], countArr.getOrDefault(nums[i], 0) + 1);
+        }
+
+        for (Map.Entry<Integer, Integer> entry : countArr.entrySet()) {
+            if (entry.getValue() == 1) {
+                System.out.println("The value is : " + entry.getKey());
+            }
+        }
+
     }
 
 }
