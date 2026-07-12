@@ -206,20 +206,19 @@ public class Arrays_Easy {
 
         }
 
-        while(i < arr1.length){
-            if(union.isEmpty() || union.get(union.size() - 1) != arr1[i]){
+        while (i < arr1.length) {
+            if (union.isEmpty() || union.get(union.size() - 1) != arr1[i]) {
                 union.add(arr1[i]);
             }
             i++;
         }
 
-        while(j < arr2.length){
-            if(union.isEmpty() || union.get(union.size() - 1) != arr2[j]){
+        while (j < arr2.length) {
+            if (union.isEmpty() || union.get(union.size() - 1) != arr2[j]) {
                 union.add(arr2[j]);
             }
             j++;
         }
-
 
     }
 
@@ -255,6 +254,63 @@ public class Arrays_Easy {
                 System.out.println("The value is : " + entry.getKey());
             }
         }
+
+    }
+
+    public void LongestSubArray() {
+        int[] nums = { 10, 5, 2, 7, 1, 9 };
+        int k = 15;
+        int total_sum = 0;
+        int max_length = 0;
+        int left = 0;
+
+        for (int right = 0; right < nums.length; right++) {
+            total_sum += nums[right];
+
+            while (total_sum > k && left <= right) {
+                total_sum = total_sum - nums[left];
+                left = left + 1;
+            }
+
+            if (total_sum == k) {
+                int current_window_len = right - left + 1;
+                if (current_window_len > max_length) {
+                    max_length = current_window_len;
+                }
+            }
+        }
+
+        System.out.println(max_length);
+    }
+
+    public void maxLen() {
+        int[] arr = { 9, -3, 3, -1, 6, -5 };
+        int runningTotal = 0;
+        int max_len = 0;
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int right = 0; right < arr.length; right++) {
+            runningTotal += arr[right];
+
+            if (runningTotal == 0) {
+                max_len = right + 1;
+            }
+
+            if (map.containsKey(runningTotal)) {
+                int oldIndex = map.get(runningTotal);
+
+                int current_len = right - oldIndex;
+
+                if (current_len > max_len) {
+                    max_len = current_len;
+                }
+            } else {
+                map.put(runningTotal, right);
+            }
+
+        }
+
+        System.out.println("Longest Subarray Length: " + max_len);
 
     }
 
