@@ -75,4 +75,21 @@ public class Arrays_Medium {
         System.out.println(candiate);
     }
 
+    // Kadane Algorithm
+    public void maxSubArray() {
+        int[] nums = { 2, 3, 5, -2, 7, -4 };
+        int currentSum = 0;
+        int maxSum = Integer.MIN_VALUE;
+
+        for (int i = 0; i < nums.length; i++) {
+            if (currentSum <= 0) {
+                currentSum = 0;
+            }
+            currentSum += nums[i];
+            maxSum = Math.max(maxSum, currentSum);
+
+        }
+
+    }
+
 }
