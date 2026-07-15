@@ -12,8 +12,9 @@ public class App {
         // // 4. Print the result that was returned
         // System.out.println("The maximum consecutive ones is: " + result);
         // ar1.LongestSubArray();
-        ar1.maxLen();
 
+        Arrays_Medium ar2 = new Arrays_Medium();
+        ar2.MajorityElement();
     }
 
 }

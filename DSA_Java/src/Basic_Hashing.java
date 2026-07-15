@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Basic_Hashing {
 
-    public void Testing_Hashing(){
+    public void Testing_Hashing() {
         HashMap<String, Double> map = new HashMap<>();
 
         map.put("apple", 0.50);
@@ -22,13 +22,32 @@ public class Basic_Hashing {
 
         // Storing the values for counting the elements
         for (int i = 0; i < n; i++) {
-            map.put(arr[i],map.getOrDefault(arr[i], 0) + 1);
+            map.put(arr[i], map.getOrDefault(arr[i], 0) + 1);
 
         }
 
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
             System.out.println(entry.getKey() + " " + entry.getValue());
-        }  
+        }
+
+    }
+
+    public void GetContainsKey() {
+        HashMap<String, Integer> salaries = new HashMap<>();
+        salaries.put("John", 50000);
+        salaries.put("Jane", 60000);
+
+        // Get the salary of John
+        int johnSalary = salaries.get("John");
+        System.out.println("John's salary: " + johnSalary);
+
+        // Check if the map contains a key for Jane
+        boolean hasJane = salaries.containsKey("Jane");
+        if (hasJane) {
+            System.out.println("Jane's Salary: " + salaries.get("Jane"));
+        } else {
+            System.out.println("Jane's salary not found.");
+        }
 
     }
 
@@ -48,22 +67,21 @@ public class Basic_Hashing {
             map.put(arr[i], map.getOrDefault(arr[i], 0) + 1);
         }
 
-        for(Map.Entry<Integer, Integer> entry: map.entrySet()){
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
             int element = entry.getKey();
             int freq = entry.getValue();
 
-            if(freq > maxFreq){
+            if (freq > maxFreq) {
                 maxFreq = freq;
                 maxElement = element;
             }
 
-            if (freq < minFreq){
+            if (freq < minFreq) {
                 minFreq = freq;
                 minElement = element;
             }
 
         }
-
 
         // Print results
         System.out.println("The highest frequency element is: " + maxElement);
