@@ -85,11 +85,34 @@ public class Arrays_Medium {
             if (currentSum <= 0) {
                 currentSum = 0;
             }
+
+            
             currentSum += nums[i];
             maxSum = Math.max(maxSum, currentSum);
 
         }
 
     }
+
+    public void StockBuySell() {
+
+        int[] prices = { 7, 6, 4, 3, 1 };
+        int minPrice = Integer.MAX_VALUE;
+        int maxPrice = 0;
+
+        for (int i = 0; i < prices.length; i++) {
+            minPrice = Math.min(minPrice, prices[i]);
+
+            int potentialProfit = prices[i] - minPrice;
+
+            maxPrice = Math.max(maxPrice, potentialProfit);
+
+        }
+
+        System.out.println(maxPrice);
+
+    }
+
+    
 
 }

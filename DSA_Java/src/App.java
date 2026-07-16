@@ -14,7 +14,7 @@ public class App {
         // ar1.LongestSubArray();
 
         Arrays_Medium ar2 = new Arrays_Medium();
-        ar2.MajorityElement();
+        ar2.StockBuySell();
     }
 
 }
