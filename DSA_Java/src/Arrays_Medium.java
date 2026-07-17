@@ -86,7 +86,6 @@ public class Arrays_Medium {
                 currentSum = 0;
             }
 
-            
             currentSum += nums[i];
             maxSum = Math.max(maxSum, currentSum);
 
@@ -113,6 +112,27 @@ public class Arrays_Medium {
 
     }
 
-    
+    public void rearrangeArray() {
+        int[] arr = { 1, 2, -4, -5 };
+
+        int posIndex = 0;
+        int negIndex = 1;
+
+        int[] newArr = new int[arr.length];
+
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[i] > 0){
+                newArr[posIndex] = arr[i];
+                posIndex += 2;
+                
+            } else if (arr[i] < 0){
+                newArr[negIndex] = arr[i];
+                negIndex += 2;
+            }
+        }
+
+        System.out.println(Arrays.toString(newArr));
+
+    }
 
 }
