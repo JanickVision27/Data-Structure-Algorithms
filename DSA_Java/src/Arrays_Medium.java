@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.LongStream;
 
 public class Arrays_Medium {
 
@@ -121,11 +122,11 @@ public class Arrays_Medium {
         int[] newArr = new int[arr.length];
 
         for (int i = 0; i < arr.length; i++) {
-            if(arr[i] > 0){
+            if (arr[i] > 0) {
                 newArr[posIndex] = arr[i];
                 posIndex += 2;
-                
-            } else if (arr[i] < 0){
+
+            } else if (arr[i] < 0) {
                 newArr[negIndex] = arr[i];
                 negIndex += 2;
             }
@@ -135,4 +136,130 @@ public class Arrays_Medium {
 
     }
 
+    public void nextPermutation() {
+        int[] nums = { 1, 2, 3 };
+        int n = nums.length;
+        int breakIndex = -1;
+
+        for (int i = n - 2; i >= 0; i--) {
+            if (nums[i] < nums[i + 1]) {
+                breakIndex = i;
+                break;
+            }
+        }
+
+        if (breakIndex == -1) {
+            reverse(nums, 0, n - 1);
+            return;
+        }
+
+        for (int i = n - 1; i > breakIndex; i--) {
+            if (nums[i] > nums[breakIndex]) {
+                swap(nums, i, breakIndex);
+                break;
+            }
+        }
+
+        reverse(nums, breakIndex + 1, n - 1);
+
+    }
+
+    private void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+
+    private void reverse(int[] nums, int start, int end) {
+        while (start < end) {
+            swap(nums, start, end);
+            start++;
+            end--;
+        }
+    }
+
+    public void LeadersInArray() {
+        int[] arr = { 1, 2, 5, 3, 1, 2 };
+
+        ArrayList<Integer> ans = new ArrayList<>();
+        int maxFromRight = arr[arr.length - 1];
+        ans.add(maxFromRight);
+
+        for (int i = arr.length - 2; i >= 0; i--) {
+            if (arr[i] > maxFromRight) {
+                maxFromRight = arr[i];
+                ans.add(maxFromRight);
+            }
+        }
+
+        Collections.reverse(ans);
+
+        System.out.println(ans);
+
+    }
+
+    // The reason I use Hashset because, It has ability to like
+    // Extract the values in O(1) Look up instead of using array to go through every
+    // single step.
+    public void longestConsecutive() {
+        int[] arr = { 100, 4, 200, 1, 3, 2 };
+
+        Set<Integer> set = new HashSet<>();
+        for (int num : arr) {
+            set.add(num);
+        }
+
+        int longStreak = 0;
+
+        for (int num : set) {
+            if (set.contains(num - 1) == false) {
+                int currentNum = num;
+                int currentStreak = 1;
+
+                while (set.contains(currentNum + 1)) {
+                    currentNum += 1;
+                    currentStreak += 1;
+                }
+
+                longStreak = Math.max(longStreak, currentStreak);
+            }
+        }
+
+        System.out.println(longStreak);
+
+    }
+
+    public void MatrixZero() {
+        int[][] matrix = {
+                { 1, 1, 1 },
+                { 1, 0, 1 },
+                { 1, 1, 1 }
+        };
+
+        int numRows = matrix.length;
+        int numCols = matrix[0].length;
+
+        Set<Integer> zeroRows = new HashSet<>();
+        Set<Integer> zeroCols = new HashSet<>();
+
+        for (int i = 0; i < numRows; i++) {
+            for (int j = 0; j < numCols; j++) {
+                if (matrix[i][j] == 0) {
+                    zeroRows.add(i);
+                    zeroCols.add(j);
+                }
+            }
+        }
+
+        for (int i = 0; i < numRows; i++) {
+            for (int j = 0; j < numCols; j++) {
+                if(zeroRows.contains(i) || zeroCols.contains(j)){
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+
+        System.out.println(Arrays.deepToString(matrix));
+
+    }
 }
