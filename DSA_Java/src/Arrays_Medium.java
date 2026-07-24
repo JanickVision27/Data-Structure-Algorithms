@@ -253,7 +253,7 @@ public class Arrays_Medium {
 
         for (int i = 0; i < numRows; i++) {
             for (int j = 0; j < numCols; j++) {
-                if(zeroRows.contains(i) || zeroCols.contains(j)){
+                if (zeroRows.contains(i) || zeroCols.contains(j)) {
                     matrix[i][j] = 0;
                 }
             }
@@ -261,5 +261,38 @@ public class Arrays_Medium {
 
         System.out.println(Arrays.deepToString(matrix));
 
+    }
+
+    public void rotate() {
+        int[][] matrix = {
+                { 1, 2, 3 },
+                { 4, 5, 6 },
+                { 7, 8, 9 }
+        };
+
+        // Transpose the matrix
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = i; j < matrix[0].length; j++) {
+                int temp = matrix[i][j];
+                matrix[i][j] = matrix[j][i];
+                matrix[j][i] = temp;
+
+            }
+        }
+
+        // Reverse each row
+        for(int i = 0; i < matrix.length; i++){
+            int left = 0;
+            int right = matrix.length - 1;
+
+            while(left < right){
+                int temp = matrix[i][left];
+                matrix[i][left] = matrix[i][right];
+                matrix[i][right] = temp;
+
+                left++;
+                right--;
+            }
+        }
     }
 }
