@@ -281,11 +281,11 @@ public class Arrays_Medium {
         }
 
         // Reverse each row
-        for(int i = 0; i < matrix.length; i++){
+        for (int i = 0; i < matrix.length; i++) {
             int left = 0;
             int right = matrix.length - 1;
 
-            while(left < right){
+            while (left < right) {
                 int temp = matrix[i][left];
                 matrix[i][left] = matrix[i][right];
                 matrix[i][right] = temp;
@@ -293,6 +293,59 @@ public class Arrays_Medium {
                 left++;
                 right--;
             }
+        }
+    }
+
+    public void setZeroMatrix(int[][] matrix) {
+        int rows = matrix.length;
+        int column = matrix[0].length;
+
+        boolean[] rowHasZero = new boolean[rows];
+        boolean[] colHasZero = new boolean[column];
+
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < column; c++) {
+                if (matrix[r][c] == 0) {
+                    rowHasZero[r] = true;
+                    colHasZero[c] = true;
+                }
+            }
+        }
+        
+
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < column; c++) {
+                if(rowHasZero[r] || colHasZero[c]){
+                    matrix[r][c] = 0;
+                }
+            }
+        }
+
+    }
+
+    public void SpiralOrder(int [] [] matrix){
+        List<Integer> result = new ArrayList<>();
+
+        if(matrix.length == 0){
+            System.out.println(result);
+        }
+
+        int rowBegin = 0;
+        int rowEnd = matrix.length - 1;
+        int colBegin = 0;
+        int colEnd = matrix[0].length - 1;
+
+        while(rowBegin <= rowEnd && colBegin <= colEnd){
+
+            // transverse Right
+            for(int j = colBegin; j<= colEnd; j++){
+                result.add(matrix[rowBegin][j]);
+            }
+
+            rowBegin++;
+
+            
+
         }
     }
 }

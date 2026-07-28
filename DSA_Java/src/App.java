@@ -14,7 +14,7 @@ public class App {
         // ar1.LongestSubArray();
 
         Arrays_Medium ar2 = new Arrays_Medium();
-        ar2.MatrixZero();
+        ar2.setZeroMatrix(new int[][]{{1, 1, 1}, {1, 0, 1}, {1, 1, 1}});
     }
 
 }
