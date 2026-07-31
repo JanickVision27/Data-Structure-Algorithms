@@ -1,3 +1,5 @@
+package Coding_DSA;
+
 import java.util.*;
 
 public class Basic_Hashing {

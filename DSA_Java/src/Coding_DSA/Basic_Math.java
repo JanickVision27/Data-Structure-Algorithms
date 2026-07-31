@@ -1,3 +1,5 @@
+package Coding_DSA;
+
 public class Basic_Math {
 
     /*

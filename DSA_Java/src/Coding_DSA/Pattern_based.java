@@ -1,3 +1,5 @@
+package Coding_DSA;
+
 import java.util.Scanner;
 
 public class Pattern_based {

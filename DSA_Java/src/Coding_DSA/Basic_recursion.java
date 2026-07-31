@@ -1,3 +1,5 @@
+package Coding_DSA;
+
 import java.util.*;
 
 public class Basic_recursion {
@@ -54,6 +56,7 @@ public class Basic_recursion {
         HashMap<Integer, Integer> map = new HashMap<>();
 
         map.put(0,1);
+        
         for (int i = 0; i < n; i++) {
             runningsum += arr[i];
             int val = runningsum - sum;
