@@ -18,6 +18,7 @@ public class task1 {
         System.out.println("3. View your Second Longest study hour: ");
         System.out.println("4. Check your Consistency Improvement");
         System.out.println("5. Removing the Repeated Study Hours");
+        System.out.println("6. Shift Hours by One");
         System.out.println("0. Exit the program: ");
         int chose = sc.nextInt();
 
@@ -40,6 +41,9 @@ public class task1 {
             case 5:
                 System.out.println();
                 removeDuplicateEntries();
+            case 6:
+                System.out.println();
+                shiftLogByOneDay();
             case 0:
                 System.out.println("Exiting... the program");
                 return;
@@ -135,17 +139,41 @@ public class task1 {
         System.out.println("Before Removing Repeated Values");
         System.out.println(Arrays.toString(this.dailylog));
 
-        int i = 0;
-        for(int j = 1; j < this.dailylog.length; j++){
-            if(this.dailylog[j] != this.dailylog[i]){
-                i++;
-                this.dailylog[i] = this.dailylog[j];
-            }
+        LinkedHashSet<Integer> removeDup = new LinkedHashSet<>();
+
+        for(int i = 0; i < this.dailylog.length; i++){
+            removeDup.add(dailylog[i]);
         }
 
-        System.out.println("Values After Removing the Values");
-        System.out.println(Arrays.toString(this.dailylog));
+        System.out.println("Values After Removing Duplicates");
+        System.out.println(removeDup);
 
     }
+
+    public void shiftLogByOneDay(){
+        if (this.dailylog == null || this.dailylog.length == 0) {
+            System.out.println("The values are empty, please fill the value");
+            return;
+        }
+
+        System.out.println("Before Shifting Hours" );
+        System.out.println(Arrays.toString(this.dailylog));
+        int i = 0;
+        int firstVal = this.dailylog[0];
+        for(int j = 1; j < this.dailylog.length; j++){
+            dailylog[i] = dailylog[j];
+        }
+        dailylog[this.dailylog.length - 1] = firstVal;
+
+        System.out.println("After shifting hours");
+        System.out.println(Arrays.toString(this.dailylog));
+
+
+
+    }
+
+
+
+
 
 }
