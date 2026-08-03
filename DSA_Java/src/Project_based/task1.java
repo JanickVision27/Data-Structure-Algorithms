@@ -19,6 +19,7 @@ public class task1 {
         System.out.println("4. Check your Consistency Improvement");
         System.out.println("5. Removing the Repeated Study Hours");
         System.out.println("6. Shift Hours by One");
+        System.out.println("7. Shift Hours by K Days");
         System.out.println("0. Exit the program: ");
         int chose = sc.nextInt();
 
@@ -38,12 +39,19 @@ public class task1 {
             case 4:
                 System.out.println();
                 isConsisentTrend();
+                break;
             case 5:
                 System.out.println();
                 removeDuplicateEntries();
+                break;
             case 6:
                 System.out.println();
                 shiftLogByOneDay();
+                break;
+            case 7:
+                System.out.println();
+                shiftLogbyKDays();
+                break;
             case 0:
                 System.out.println("Exiting... the program");
                 return;
@@ -171,7 +179,45 @@ public class task1 {
 
     }
 
-    
+    public void shiftLogbyKDays(){
+        if (this.dailylog == null || this.dailylog.length == 0) {
+            System.out.println("The values are empty, please fill the value");
+            return;
+        }
+
+        System.out.println("Please Provide How many days you want to shift the log: ");
+        int k = this.sc.nextInt();
+        int n = this.dailylog.length;
+
+        if(k > n){
+            k %= n;
+        }
+
+        System.out.println("Before Shifting Hours");
+        System.out.println(Arrays.toString(this.dailylog));
+
+        reverseArray(this.dailylog, 0, n - 1);
+        reverseArray(this.dailylog, 0, k - 1);
+        reverseArray(this.dailylog, k, n - 1);
+
+        System.out.println("After shifting hours by " + k + " days");
+        System.out.println(Arrays.toString(this.dailylog));
+        
+        
+        
+    }
+    void reverseArray(int[] arr, int start, int end) {
+        while (start < end) {
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+        }
+    }
+
+
+
 
 
 
