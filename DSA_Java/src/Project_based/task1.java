@@ -126,11 +126,11 @@ public class task1 {
             System.out.println("The Values are consistent");
 
         } else {
-            System.out.println("The Values are not consisten");
+            System.out.println("The Values are not consistent");
         }
     }
 
-    public void removeDuplicateEntries(){
+    public void removeDuplicateEntries() {
         if (this.dailylog == null) {
             System.out.println("The values are empty, please fill the value");
             return;
@@ -141,7 +141,7 @@ public class task1 {
 
         LinkedHashSet<Integer> removeDup = new LinkedHashSet<>();
 
-        for(int i = 0; i < this.dailylog.length; i++){
+        for (int i = 0; i < this.dailylog.length; i++) {
             removeDup.add(dailylog[i]);
         }
 
@@ -150,27 +150,28 @@ public class task1 {
 
     }
 
-    public void shiftLogByOneDay(){
+    public void shiftLogByOneDay() {
         if (this.dailylog == null || this.dailylog.length == 0) {
             System.out.println("The values are empty, please fill the value");
             return;
         }
 
-        System.out.println("Before Shifting Hours" );
+        System.out.println("Before Shifting Hours");
         System.out.println(Arrays.toString(this.dailylog));
         int i = 0;
         int firstVal = this.dailylog[0];
-        for(int j = 1; j < this.dailylog.length; j++){
+        for (int j = 1; j < this.dailylog.length; j++) {
             dailylog[i] = dailylog[j];
+            i++;
         }
         dailylog[this.dailylog.length - 1] = firstVal;
 
         System.out.println("After shifting hours");
         System.out.println(Arrays.toString(this.dailylog));
 
-
-
     }
+
+    
 
 
 
