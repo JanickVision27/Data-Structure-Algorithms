@@ -21,6 +21,7 @@ public class task1 {
         System.out.println("6. Shift Hours by One");
         System.out.println("7. Shift Hours by K Days");
         System.out.println("8. Push Missed Days to End");
+        System.out.println("9. Check the Hours Spend on a day");
         System.out.println("0. Exit the program: ");
         int chose = sc.nextInt();
 
@@ -56,6 +57,10 @@ public class task1 {
             case 8:
                 System.out.println();
                 pushMissedDaysToEnd();
+                break;
+            case 9:
+                System.out.println();
+                findValueOnDay();
                 break;
             case 0:
                 System.out.println("Exiting... the program");
@@ -184,7 +189,7 @@ public class task1 {
 
     }
 
-    public void shiftLogbyKDays(){
+    public void shiftLogbyKDays() {
         if (this.dailylog == null || this.dailylog.length == 0) {
             System.out.println("The values are empty, please fill the value");
             return;
@@ -194,7 +199,7 @@ public class task1 {
         int k = this.sc.nextInt();
         int n = this.dailylog.length;
 
-        if(k > n){
+        if (k > n) {
             k %= n;
         }
 
@@ -207,10 +212,9 @@ public class task1 {
 
         System.out.println("After shifting hours by " + k + " days");
         System.out.println(Arrays.toString(this.dailylog));
-        
-        
-        
+
     }
+
     void reverseArray(int[] arr, int start, int end) {
         while (start < end) {
             int temp = arr[start];
@@ -221,29 +225,47 @@ public class task1 {
         }
     }
 
-    public void pushMissedDaysToEnd(){
+    public void pushMissedDaysToEnd() {
         if (this.dailylog == null || this.dailylog.length == 0) {
             System.out.println("The values are empty, please fill the value");
             return;
         }
-        int [] newArr = new int[this.dailylog.length];
         int i = 0;
-        for(int j = 0; j < this.dailylog.length; j++){
-            if(this.dailylog[j] != 0){
-                newArr[i] = this.dailylog[j];
+        for (int j = 0; j < this.dailylog.length; j++) {
+            if (this.dailylog[j] != 0) {
+                int temp = this.dailylog[i];
+                this.dailylog[i] = this.dailylog[j];
+                this.dailylog[j] = temp;
                 i++;
             }
         }
 
         System.out.println("After pushing the missed days to end");
-        System.out.println(Arrays.toString(newArr));
+        System.out.println(Arrays.toString(dailylog));
     }
 
+    public void findValueOnDay() {
+        if (this.dailylog == null || this.dailylog.length == 0) {
+            System.out.println("The values are empty, please fill the value");
+            return;
+        }
+
+        System.out.println("Please Provide the Day you want to check the value: ");
+        int day = this.sc.nextInt();
+        int hr = 0;
+
+        if (day < 1 || day > this.dailylog.length) {
+            System.out.println("Invalid Day");
+            return;
+        }
+
+        for(int i = 0; i < this.dailylog.length; i++){
+            if(day - 1 == i){
+                System.out.println("Your Study Hour on " + day + " " + "is: " + dailylog[i]);
+            }
+        }
 
 
-
-
-
-
+    }
 
 }
