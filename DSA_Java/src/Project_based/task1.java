@@ -216,6 +216,17 @@ public class task1 {
         }
     }
 
+    public void pushMissedDaysToEnd(){
+        if (this.dailylog == null || this.dailylog.length == 0) {
+            System.out.println("The values are empty, please fill the value");
+            return;
+        }
+
+        for(int i = 0; i < this.dailylog.length; i++){
+            
+        }
+    }
+
 
 
 
