@@ -346,7 +346,7 @@ public class Arrays_Medium {
 
             rowBegin++;
 
-            
+               
 
         }
     }

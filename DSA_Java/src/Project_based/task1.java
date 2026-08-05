@@ -20,6 +20,7 @@ public class task1 {
         System.out.println("5. Removing the Repeated Study Hours");
         System.out.println("6. Shift Hours by One");
         System.out.println("7. Shift Hours by K Days");
+        System.out.println("8. Push Missed Days to End");
         System.out.println("0. Exit the program: ");
         int chose = sc.nextInt();
 
@@ -51,6 +52,10 @@ public class task1 {
             case 7:
                 System.out.println();
                 shiftLogbyKDays();
+                break;
+            case 8:
+                System.out.println();
+                pushMissedDaysToEnd();
                 break;
             case 0:
                 System.out.println("Exiting... the program");
@@ -221,10 +226,17 @@ public class task1 {
             System.out.println("The values are empty, please fill the value");
             return;
         }
-
-        for(int i = 0; i < this.dailylog.length; i++){
-            
+        int [] newArr = new int[this.dailylog.length];
+        int i = 0;
+        for(int j = 0; j < this.dailylog.length; j++){
+            if(this.dailylog[j] != 0){
+                newArr[i] = this.dailylog[j];
+                i++;
+            }
         }
+
+        System.out.println("After pushing the missed days to end");
+        System.out.println(Arrays.toString(newArr));
     }
 
 
