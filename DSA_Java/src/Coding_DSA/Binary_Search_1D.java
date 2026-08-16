@@ -93,9 +93,9 @@ public class Binary_Search_1D {
 
             if (nums[mid] <= tar) {
                 flor = nums[mid];
-                right = mid - 1;
-            } else {
                 left = mid + 1;
+            } else {
+                right = mid - 1;
             }
         }
 

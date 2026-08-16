@@ -268,4 +268,8 @@ public class task1 {
 
     }
 
+    public void LongestActiveStreak(){
+        
+    }
+
 }
