@@ -35,40 +35,6 @@ public class Easy_main {
 
 	}
 
-	public static void palindrome(String word) {
-//		String real = word;
-//		StringBuilder sb = new StringBuilder();
-//		
-//		for(int i = word.length() - 1; i >= 0; i--) {
-//			char ch = word.charAt(i);
-//			sb.append(ch);
-//		}
-//		
-//		String reverseWrd = sb.toString();
-//		
-//		if(real.equals(reverseWrd)) {
-//			System.out.println("This is a Palindrome");
-//		}
-//		else {
-//			System.out.println("This is not a Palindrome");
-//		}
-
-		int left = 0;
-		int right = word.length() - 1;
-
-		while (left < right) {
-			if (word.charAt(left) != word.charAt(right)) {
-				System.out.println("This is not a Palindrome");
-				break;
-			}
-			left++;
-			right--;
-		}
-
-		System.out.println("This is a Palindrome one");
-
-	}
-
 	public static void checkPrimeNum(int num) {
 		boolean is_Prime = true;
 
@@ -128,12 +94,38 @@ public class Easy_main {
 
 	}
 	
-	
-	
-	
-	
-	
-	
-	
 
+	public static void palindrome(String word) {
+//		String real = word;
+//		StringBuilder sb = new StringBuilder();
+//		
+//		for(int i = word.length() - 1; i >= 0; i--) {
+//			char ch = word.charAt(i);
+//			sb.append(ch);
+//		}
+//		
+//		String reverseWrd = sb.toString();
+//		
+//		if(real.equals(reverseWrd)) {
+//			System.out.println("This is a Palindrome");
+//		}
+//		else {
+//			System.out.println("This is not a Palindrome");
+//		}
+
+		int left = 0;
+		int right = word.length() - 1;
+
+		while (left < right) {
+			if (word.charAt(left) != word.charAt(right)) {
+				System.out.println("This is not a Palindrome");
+				break;
+			}
+			left++;
+			right--;
+		}
+
+		System.out.println("This is a Palindrome one");
+
+	}
 }
