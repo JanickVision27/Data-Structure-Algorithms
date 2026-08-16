@@ -4,11 +4,11 @@ import java.util.*;
 
 public class Easy_main {
 	public static void main(String[] args) {
-//		SwapTwoNum(5, 9);
-//		ReverseNum("");
-//		palindrome("radar");
-//		FindLarSmal(new int[] { 10, 5, 3, 25 });
-//		checkPrimeNum(9);
+		// SwapTwoNum(5, 9);
+		// ReverseNum("");
+		// palindrome("radar");
+		// FindLarSmal(new int[] { 10, 5, 3, 25 });
+		// checkPrimeNum(9);
 		findFactorial(5);
 
 	}
@@ -94,22 +94,22 @@ public class Easy_main {
 	}
 
 	public static void palindrome(String word) {
-//		String real = word;
-//		StringBuilder sb = new StringBuilder();
-//		
-//		for(int i = word.length() - 1; i >= 0; i--) {
-//			char ch = word.charAt(i);
-//			sb.append(ch);
-//		}
-//		
-//		String reverseWrd = sb.toString();
-//		
-//		if(real.equals(reverseWrd)) {
-//			System.out.println("This is a Palindrome");
-//		}
-//		else {
-//			System.out.println("This is not a Palindrome");
-//		}
+		// String real = word;
+		// StringBuilder sb = new StringBuilder();
+		//
+		// for(int i = word.length() - 1; i >= 0; i--) {
+		// char ch = word.charAt(i);
+		// sb.append(ch);
+		// }
+		//
+		// String reverseWrd = sb.toString();
+		//
+		// if(real.equals(reverseWrd)) {
+		// System.out.println("This is a Palindrome");
+		// }
+		// else {
+		// System.out.println("This is not a Palindrome");
+		// }
 
 		int left = 0;
 		int right = word.length() - 1;
@@ -166,52 +166,49 @@ public class Easy_main {
 		}
 		System.out.println();
 	}
-	
-    public static void sumOfDigits(int number) {
-        int sum = 0;
-        int temp = number;
 
-        while (temp > 0) {
-            int digit = temp % 10; 
-            sum += digit;          
-            temp /= 10;           
-        }
+	public static void sumOfDigits(int number) {
+		int sum = 0;
+		int temp = number;
 
-        System.out.println("10. Sum of digits in " + number + " is: " + sum);
-    }
-    
-    public static void countWords(String Sentence) {
-    	
-    	if(Sentence == null) {
-    		System.out.println("Empty String");
-    	}
-    	
-    	String [] words = Sentence.split("//s+");
-    	System.out.println("Length of a Word: " + words.length);
-    }
-    
-    public static void removeDuplicates(String input) {
-    	if(input == null) {
-    		System.out.println("Input is Null");
-    		return;
-    	}
-    	
-    	StringBuilder sb = new StringBuilder();
-    	
-    	HashSet<Character> seen = new HashSet<>();
-    	
-    	for(char c : input.toCharArray()) {
-    		if(!seen.contains(c)) {
-    			seen.add(c);
-    			sb.append(c);
-    		}
-    	}
-    	
-    	System.out.println("Results without Duplicates: " + sb.toString());
-    	
-    	
-    }
-	
-	
+		while (temp > 0) {
+			int digit = temp % 10;
+			sum += digit;
+			temp /= 10;
+		}
+
+		System.out.println("10. Sum of digits in " + number + " is: " + sum);
+	}
+
+	public static void countWords(String Sentence) {
+
+		if (Sentence == null) {
+			System.out.println("Empty String");
+		}
+
+		String[] words = Sentence.split("\\s+");
+		System.out.println("Length of a Word: " + words.length);
+	}
+
+	public static void removeDuplicates(String input) {
+		if (input == null) {
+			System.out.println("Input is Null");
+			return;
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		HashSet<Character> seen = new HashSet<>();
+
+		for (char c : input.toCharArray()) {
+			if (!seen.contains(c)) {
+				seen.add(c);
+				sb.append(c);
+			}
+		}
+
+		System.out.println("Results without Duplicates: " + sb.toString());
+
+	}
 
 }
