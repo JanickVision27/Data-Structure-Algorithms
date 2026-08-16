@@ -1,5 +1,7 @@
 package HCL_Coding;
 
+import java.util.*;
+
 public class Easy_main {
 	public static void main(String[] args) {
 //		SwapTwoNum(5, 9);
@@ -49,30 +51,27 @@ public class Easy_main {
 			}
 
 		}
-		
-		if(is_Prime) {
+
+		if (is_Prime) {
 			System.out.println("This is a Prime Number: " + num);
-		}
-		else {
+		} else {
 			System.out.println("This is not a Prime Number: " + num);
 		}
 
 	}
-	
+
 	public static void findFactorial(int num) {
 		int sum = 1;
-		
-		if(num < 1) {
+
+		if (num < 1) {
 			System.out.println("This is not a Factorial");
 		}
-		
-		for(int i = num; i >= 1; i--) {
-			sum  = sum * i;
+
+		for (int i = num; i >= 1; i--) {
+			sum = sum * i;
 		}
 		System.out.println("Total Factorial: " + sum);
 	}
-	
-	
 
 	public static void FindLarSmal(int[] val) {
 		int check_max = val[0];
@@ -93,7 +92,6 @@ public class Easy_main {
 		System.out.println("Minimum Value in an Array: " + check_min);
 
 	}
-	
 
 	public static void palindrome(String word) {
 //		String real = word;
@@ -128,4 +126,92 @@ public class Easy_main {
 		System.out.println("This is a Palindrome one");
 
 	}
+
+	public static void countVowelsConsonants(String Word) {
+		if (Word == null || Word.isEmpty()) {
+			System.out.println("Vowels: 0, Consonants: 0");
+			return;
+		}
+
+		String Vowels = "aeiouAEIOU";
+
+		Set<Character> vowels = new HashSet<>();
+		for (char v : Vowels.toCharArray()) {
+			vowels.add(v);
+		}
+
+		int vowelCount = 0;
+		int consonantCount = 0;
+
+		for (char c : Word.toCharArray()) {
+			if (Character.isLetter(c)) {
+				if (vowels.contains(c)) {
+					vowelCount += 1;
+				} else {
+					consonantCount += 1;
+				}
+			}
+		}
+
+		System.out.println("7. Vowels: " + vowelCount + ", Consonants: " + consonantCount);
+	}
+
+	public static void printEvenOdd(int num) {
+		for (int i = 1; i <= num; i++) {
+			if (i % 2 == 0) {
+				System.out.print("Even: " + i + " ");
+			} else {
+				System.out.print("Odd: " + i + " ");
+			}
+		}
+		System.out.println();
+	}
+	
+    public static void sumOfDigits(int number) {
+        int sum = 0;
+        int temp = number;
+
+        while (temp > 0) {
+            int digit = temp % 10; 
+            sum += digit;          
+            temp /= 10;           
+        }
+
+        System.out.println("10. Sum of digits in " + number + " is: " + sum);
+    }
+    
+    public static void countWords(String Sentence) {
+    	
+    	if(Sentence == null) {
+    		System.out.println("Empty String");
+    	}
+    	
+    	String [] words = Sentence.split("//s+");
+    	System.out.println("Length of a Word: " + words.length);
+    }
+    
+    public static void removeDuplicates(String input) {
+    	if(input == null) {
+    		System.out.println("Input is Null");
+    		return;
+    	}
+    	
+    	StringBuilder sb = new StringBuilder();
+    	
+    	HashSet<Character> seen = new HashSet<>();
+    	
+    	for(char c : input.toCharArray()) {
+    		if(!seen.contains(c)) {
+    			seen.add(c);
+    			sb.append(c);
+    		}
+    	}
+    	
+    	System.out.println("Results without Duplicates: " + sb.toString());
+    	
+    	
+    }
+	
+	
+
 }
