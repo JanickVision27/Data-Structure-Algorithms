@@ -64,7 +64,7 @@ public class SlidingWindow {
         int zeroCount = 0;
 
         for(int right = 0; right < nums.length; right++){
-            if(nums[right] != 1){
+            if(nums[right] == 0){
                 zeroCount++;
             }
 
@@ -81,9 +81,5 @@ public class SlidingWindow {
 
         return maxLength;
     }
-
-
-
-
 
 }
