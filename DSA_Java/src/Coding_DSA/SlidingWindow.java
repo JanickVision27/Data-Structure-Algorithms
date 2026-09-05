@@ -1,5 +1,7 @@
-package Project_based;
+package Coding_DSA;
+
 import java.util.*;
+
 public class SlidingWindow {
 
     public static void main(String[] args) {
@@ -21,15 +23,15 @@ public class SlidingWindow {
 
             // ! this is where it tracks the window size of sliding window array
             int windowSize = right - left + 1;
-            
+
             // ! to check if the window size is growing more than k.
-            if(windowSize > k){
+            if (windowSize > k) {
                 windowSum -= arr[left];
                 left++;
             }
 
             // ! If our window is exactly size k, check for a new high score!
-            if(windowSize == k){
+            if (windowSize == k) {
                 maxSum = Math.max(windowSum, maxSum);
             }
         }
@@ -37,13 +39,13 @@ public class SlidingWindow {
         System.out.println("Max Value is: " + maxSum);
     }
 
-    public int lengthOfLongestSubstring(String s){
+    public int lengthOfLongestSubstring(String s) {
         int left = 0;
         int maxLength = 0;
         HashSet<Character> check = new HashSet<>();
 
-        for(int right = 0; right < s.length(); right++){
-            while(check.contains(s.charAt(right))){
+        for (int right = 0; right < s.length(); right++) {
+            while (check.contains(s.charAt(right))) {
                 check.remove(s.charAt(left));
                 left++;
             }
@@ -52,33 +54,61 @@ public class SlidingWindow {
 
             int windowSize = right - left + 1;
 
-            maxLength = Math.max(windowSize,maxLength);
+            maxLength = Math.max(windowSize, maxLength);
         }
 
         return maxLength;
     }
 
-    public int longestOnes(int [] nums, int k){
+    public int longestOnes(int[] nums, int k) {
         int left = 0;
         int maxLength = 0;
         int zeroCount = 0;
 
-        for(int right = 0; right < nums.length; right++){
-            if(nums[right] == 0){
+        for (int right = 0; right < nums.length; right++) {
+            if (nums[right] == 0) {
                 zeroCount++;
             }
 
-            while(zeroCount > k){
-                if(nums[left] == 0){
+            while (zeroCount > k) {
+                if (nums[left] == 0) {
                     zeroCount--;
                 }
                 left++;
             }
 
             maxLength = Math.max(maxLength, right - left + 1);
-            
+
         }
 
+        return maxLength;
+    }
+
+    public int totalFruit(int[] fruits) {
+        int left = 0;
+        int maxLength = 0;
+        HashMap<Integer, Integer> basket = new HashMap<>();
+
+        for (int right = 0; right < fruits.length; right++) {
+            if (basket.containsKey(fruits[right])) {
+
+                basket.put(fruits[right], basket.getOrDefault(fruits[right], 0) + 1);
+            }
+
+            while (basket.size() > 2) {
+                int leftCount = basket.get(fruits[left]) - 1;
+
+                if (leftCount == 0) {
+                    basket.remove(fruits[left], leftCount);
+                } else {
+                    basket.put(fruits[left], leftCount);
+                }
+                left++;
+            }
+
+            maxLength = Math.max(maxLength, right - left + 1);
+
+        }
         return maxLength;
     }
 
